@@ -16,11 +16,16 @@ import { AppComponent } from './app.component';
 import { PapeisComponent } from './components/papeis/papeis.component';
 import { MovimentosComponent } from './components/movimentos/movimentos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { PerfilComponent } from './components/perfil/perfil.component';
+import { PerfilComponent } from './components/user/perfil/perfil.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
 import { NavComponent } from './shared/nav/nav.component';
 
 import { PapelService } from './services/papel.service';
+import { PapelDetalheComponent } from './components/papeis/papel-detalhe/papel-detalhe.component';
+import { PapelListaComponent } from './components/papeis/papel-lista/papel-lista.component';
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +34,12 @@ import { PapelService } from './services/papel.service';
     DashboardComponent,
     PerfilComponent,
     NavComponent,
-    TituloComponent
+    TituloComponent,
+    PapelDetalheComponent,
+    PapelListaComponent,
+    UserComponent,
+    LoginComponent,
+    RegistrationComponent
    ],
   imports: [
     BrowserModule,

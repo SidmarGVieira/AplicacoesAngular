@@ -1,57 +1,6 @@
-<app-titulo [titulo]="'Papeis'"></app-titulo>
-
-<div class="form-inline">
-  <div class="form-group mb-2">
-    <label class="mr-2">Filtro:</label>
-    <input
-    type="text"
-    class="form-control mr-2"
-    placeholder="buscar"
-    [(ngModel)]="filtroLista"
-    >
-
-  </div>
-</div>
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Opções</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="papeis && papeisFiltrados.length">
-    <tr *ngFor="let papel of papeisFiltrados" >
-      <td>{{papel.id}} </td>
-      <td>{{papel.nome}} </td>
-      <td align="left">{{papel.descricao}} </td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm mr-2" tooltip="Editar">
-        <i class="fa fa-edit"></i>
-        </button>
-        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir" (click)="openModal(template)">
-          <i class="fa fa-trash"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-  <tfoot *ngIf="!papeisFiltrados.length" >
-    <tr>
-      <td colspan="5" class="text-center">
-        <h4>Nenhum papel encontrado</h4>
-      </td>
-    </tr>
-  </tfoot>
-
-</table>
-
-<!-- {{papeis | json}} -->
-
-<ng-template #template>
-  <div class="modal-body text-center">
-    <p>Deseja realmente excluir esse papel?</p>
-    <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
-    <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
-  </div>
-</ng-template>
+<app-titulo
+  [titulo]="'Papeis'"
+  [iconClass]="'fas fa-money-check-alt'"
+  [botaoListar]="true"
+></app-titulo>
+<router-outlet></router-outlet>

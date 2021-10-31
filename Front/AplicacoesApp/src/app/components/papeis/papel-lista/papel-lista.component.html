@@ -1,0 +1,78 @@
+<div class="card rounded shadow-sm p-3">
+    <div class="d-flex">
+      <div class="flex-fill pr-3">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Filtro:</div>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Filtrar por nome e descrição"
+          [(ngModel)]="filtroLista"
+        />
+      </div>
+    </div>
+    <div>
+      <a class="d-flex btn btn-outline-primary" routerLink="/papeis/detalhe">
+        <i class="fa fa-plus-circle my-1"></i>
+        <b class="ml-1 d-none d-sm-block">Novo</b>
+      </a>
+    </div>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th class="d-none d-md-table-cell">Descrição</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="papeis && papeisFiltrados.length">
+      <tr *ngFor="let papel of papeisFiltrados" (click)="detalhePapel(papel.id)" style="cursor: pointer;">
+        <td>{{ papel.id }}</td>
+        <td>{{ papel.nome }}</td>
+        <td  class="d-none d-md-table-cell" align="left">{{ papel.descricao }}</td>
+        <td>
+          <!-- <button
+            type="button"
+            class="btn btn-primary btn-sm mr-2"
+            tooltip="Editar"
+          >
+            <i class="fa fa-edit"></i>
+          </button> -->
+          <button
+            type="button"
+            class="btn btn-danger btn-lg"
+            tooltip="Excluir"
+            (click)="openModal(template)"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!papeisFiltrados.length">
+      <tr>
+        <td colspan="5" class="text-center">
+          <h4>Nenhum papel encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<!-- {{papeis | json}} -->
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Deseja realmente excluir esse papel?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">
+      Sim
+    </button>
+    <button type="button" class="btn btn-primary" (click)="decline()">
+      Não
+    </button>
+  </div>
+</ng-template>
