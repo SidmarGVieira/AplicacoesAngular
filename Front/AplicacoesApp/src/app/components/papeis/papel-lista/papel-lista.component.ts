@@ -4,7 +4,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 import { ToastrService } from 'ngx-toastr';
 
-import { PapelService } from '../../../services/papel.service';
+import { PapelService } from '@app/services/papel.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { TituloComponent } from '../../../shared/titulo/titulo.component';

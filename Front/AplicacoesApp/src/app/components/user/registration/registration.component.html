@@ -7,7 +7,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-6" [formGroup]="form">
 
 		<!--FORM VAI AQUI-->
     <form class="p-1">
@@ -17,7 +17,12 @@
       <div class="form-row">
         <div class="form-group col-sm-6">
           <label>Primeiro Nome</label>
-          <input type="text" class="form-control" placeholder="Insira o Primeiro nome" />
+          <input type="text" class="form-control"
+          [ngClass]="{'is-invalid': f.primeiroNome.errors && f.primeiroNome.touched}"
+          formControlName="primeiroNome">
+          <div *ngIf="f.primeiroNome.errors?.required" class="invalid-feedback">
+            Primeiro nome é obrigatório!
+          </div>
         </div>
         <div class="form-group col-sm-6">
           <label>Último nome</label>

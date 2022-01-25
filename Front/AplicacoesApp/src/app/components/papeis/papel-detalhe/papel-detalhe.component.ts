@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-papel-detalhe',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PapelDetalheComponent implements OnInit {
 
-  constructor() { }
+  form!: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
+  get f(): any{
+    return this.form.controls;
   }
 
+
+  ngOnInit(): void {
+    this.validation();
+  }
+
+  public validation():void{
+    this.form = this.fb.group({
+      nome: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]],
+      descricao: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(120)]]
+    })
+  }
+
+  public resetForm():void {
+    this.form.reset();
+  }
 }

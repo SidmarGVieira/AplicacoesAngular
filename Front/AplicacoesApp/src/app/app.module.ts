@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -26,6 +26,8 @@ import { PapelListaComponent } from './components/papeis/papel-lista/papel-lista
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
+import { MovimentoDetalheComponent } from './components/movimentos/movimento-detalhe/movimento-detalhe.component';
+import { MovimentoListaComponent } from './components/movimentos/movimento-lista/movimento-lista.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { RegistrationComponent } from './components/user/registration/registrati
     PapelListaComponent,
     UserComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MovimentoDetalheComponent,
+    MovimentoListaComponent
    ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { RegistrationComponent } from './components/user/registration/registrati
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     TooltipModule.forRoot(),
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
